@@ -1,17 +1,15 @@
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class AllRequestsServlet extends HttpServlet {
-    private String login = "";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)// response - сюда пишем строку, которая потом превратится в страницу у клиента
-            throws ServletException, IOException {
+            throws IOException {
         Map<String, Object> pageVariables = createPageVariablesMap(request);
         pageVariables.put("message", "");
 
@@ -21,12 +19,12 @@ public class AllRequestsServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException {
         Map<String, Object> pageVariables = createPageVariablesMap(request);
         String message = request.getParameter("message");
         response.setContentType("text/html;charset=utf-8");
 
-        if (message == null || message.isEmpty()){
+        if (message == null || message.isEmpty()) {
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
         } else {
             response.setStatus(HttpServletResponse.SC_OK);
@@ -35,7 +33,7 @@ public class AllRequestsServlet extends HttpServlet {
         response.getWriter().println(PageGenerator.instance().getPage("page.html", pageVariables));
     }
 
-    private static Map<String, Object> createPageVariablesMap(HttpServletRequest request){
+    private static Map<String, Object> createPageVariablesMap(HttpServletRequest request) {
         Map<String, Object> pageVariables = new HashMap<>();
         pageVariables.put("method", request.getMethod());
         pageVariables.put("URL", request.getRequestURL());
