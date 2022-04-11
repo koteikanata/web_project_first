@@ -8,8 +8,14 @@ body {
     color: #3d3b3b;
 }
 
-div, form {
+div {
     margin-bottom: 3%;
     margin-left: 10%;
-    margin-top: 5%;
+    margin-top: 3%;
+}
+
+form {
+    margin-bottom: 3%;
+    margin-left: 10%;
+    margin-top: 0.5%;
 }
