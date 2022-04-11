@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #d3cec1;
+
+}
+.welcome {
+    color: #3d3b3b;
+}
+
+div, form {
+    margin-bottom: 3%;
+    margin-left: 10%;
+    margin-top: 5%;
+}
